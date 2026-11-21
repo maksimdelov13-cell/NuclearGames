@@ -23,7 +23,9 @@ test('Telegram internal navigation and ordinary link fallback exist', () => {
 test('INPHE visual content and footer', () => {
   assert.match(html, /<h1 id="page-title">Научные игры<\/h1>/);
   assert.doesNotMatch(html, /Интерактивные научные эксперименты|header-university|Продолжение следует/);
-  assert.equal((html.match(/class="game-card__eyebrow">Физика частиц/g) ?? []).length, 2);
+  assert.match(html, /Физика элементарных частиц/);
+  assert.match(html, /Ядерная физика/);
+  assert.doesNotMatch(html, /class="game-card__eyebrow">Физика частиц/);
   assert.match(html, /Уже в разработке/);
   assert.match(html, /Атомно-зондовая микроскопия/);
   assert.match(html, /https:\/\/gonuclear\.mephi\.ru\//);
@@ -31,4 +33,12 @@ test('INPHE visual content and footer', () => {
   const css = fs.readFileSync(path.join(publicDir, 'assets/styles.css'), 'utf8');
   assert.match(css, /background: #fff/);
   assert.match(css, /--blue: #0055bb/);
+  assert.match(html, /Ядерный сайт/);
+  assert.match(html, /Портал ядерных абитуриентов/);
+  assert.match(html, /class="section-rule"/);
+  assert.match(html, /feColorMatrix/);
+  assert.match(css, /brand__logo/);
+  assert.match(css, /section-rule/);
+  assert.match(css, /line-height: 1\.3; color: var\(--blue\)/);
+  assert.match(html, /От ядерных реакторов до темной материи - знакомься с физикой через игру/);
 });
