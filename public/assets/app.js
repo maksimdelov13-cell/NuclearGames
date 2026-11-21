@@ -12,7 +12,7 @@
     link.addEventListener('click', (event) => {
       const app = window.Telegram?.WebApp;
       // Telegram keeps the destination inside its interface when supported.
-      if (!app || typeof app.openTelegramLink !== 'function') return;
+      if (!app?.initData || typeof app.openTelegramLink !== 'function') return;
       event.preventDefault();
       try { app.openTelegramLink(link.href); }
       catch (e) { window.open(link.href, '_blank', 'noopener,noreferrer'); }
