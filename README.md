@@ -8,7 +8,7 @@
 - `public/assets/styles.css` — оформление и адаптация смартфон / планшет / компьютер.
 - `public/assets/app.js` — корректный запуск обеих игр из Telegram Mini App и обычного браузера.
 - `public/assets/sipm-tetris.jpg`, `isotopes-256.jpg` — оптимизированные копии **утвержденных** обложек без перерисовки.
-- `source_assets/` — оригинальные утвержденные PNG-обложки для дальнейшей работы.
+- Оригинальные PNG-обложки хранятся как утвержденные образцы проекта; в данном репозитории лежат оптимизированные копии для публикации.
 - `public/_headers` — базовые HTTP-заголовки Cloudflare Pages.
 
 ## Ссылки на игры
@@ -18,7 +18,7 @@
 
 ## Первая публикация через GitHub + Cloudflare Pages
 
-1. На GitHub создать **новый пустой репозиторий**, например `inphe-games-catalog`.
+1. На GitHub создать **репозиторий `maksimdelov13-cell/NuclearGames`.
 2. Загрузить в него файлы этой папки (включая директорию `public`).
 3. В Cloudflare Dashboard открыть **Workers & Pages → Create → Pages → Connect to Git**.
 4. Выбрать созданный репозиторий и ветку `main`.
