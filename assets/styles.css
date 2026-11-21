@@ -124,6 +124,10 @@ h1, h2, h3, p { margin-top: 0; }
 }
 .game-card:hover .game-card__action,
 .game-card:focus-visible .game-card__action { background: var(--blue-hover); }
+/* Цвет кнопки соответствует фирменному цвету каждой обложки */
+.game-card--isotopes .game-card__action { background: #7e298e; }
+.game-card--isotopes:hover .game-card__action,
+.game-card--isotopes:focus-visible .game-card__action { background: #642073; }
 .game-card__action svg {
   width: 17px; height: 17px; fill: none;
   stroke: currentColor; stroke-width: 2;
