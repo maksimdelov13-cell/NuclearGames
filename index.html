@@ -18,7 +18,13 @@
   <div class="site-shell">
     <header class="site-header" aria-label="Научные игры">
       <div class="brand">
-        <img src="assets/science-in-games-logo.png" width="740" height="195" alt="Наука в игре — от ядерного университета" decoding="async" fetchpriority="high">
+        <svg class="brand__logo" viewBox="0 0 740 195" role="img" aria-label="Наука в игре — от ядерного университета" xmlns="http://www.w3.org/2000/svg">
+          <title>Наука в игре — от ядерного университета</title>
+          <defs><filter id="logo-paper-remove" color-interpolation-filters="sRGB">
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 -5.15 0 0 4.65"/>
+          </filter></defs>
+          <image href="assets/science-in-games-logo.png" width="740" height="195" filter="url(#logo-paper-remove)"/>
+        </svg>
       </div>
     </header>
 
@@ -41,7 +47,7 @@
               <img src="assets/sipm-tetris.jpg" width="1440" height="810" alt="Обложка SiPM Tetris: научная игра с детектором гамма-излучения, смартфон с игровым полем и схема регистрации сигнала" loading="eager" decoding="async">
             </div>
             <div class="game-card__content">
-              <span class="game-card__eyebrow">Физика частиц</span>
+              <span class="game-card__eyebrow">Физика элементарных частиц</span>
               <h3>SiPM Tetris</h3>
               <p>Собери детектор гамма-излучения. Заполняй матрицу, собирай секции и наблюдай сигнал.</p>
               <span class="game-card__action"><span>Играть</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span>
@@ -53,7 +59,7 @@
               <img src="assets/isotopes-256.jpg" width="1440" height="811" alt="Обложка Isotopes.256: смартфон с полем изотопов и карта нуклидов, плитки водорода, бериллия и дубния" loading="eager" decoding="async">
             </div>
             <div class="game-card__content">
-              <span class="game-card__eyebrow">Физика частиц</span>
+              <span class="game-card__eyebrow">Ядерная физика</span>
               <h3>Isotopes.256</h3>
               <p>От водорода до дубния. Объединяй одинаковые ядра и открывай новые изотопы.</p>
               <span class="game-card__action"><span>Играть</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span>
@@ -62,6 +68,7 @@
         </div>
       </section>
 
+      <hr class="section-rule" aria-hidden="true">
       <section class="coming-next" aria-labelledby="coming-title">
         <h2 id="coming-title">Уже в разработке</h2>
         <p>Атомно-зондовая микроскопия.<br>Возвращайся за новыми экспериментами!</p>
@@ -71,8 +78,8 @@
     <footer class="site-footer">
       <div class="site-footer__name">Институт ядерной физики и технологий НИЯУ МИФИ.</div>
       <nav class="site-footer__links" aria-label="Полезные ссылки">
-        <a href="https://inphe.mephi.ru/" target="_blank" rel="noopener noreferrer">Сайт ИЯФиТ</a>
-        <a href="https://gonuclear.mephi.ru/" target="_blank" rel="noopener noreferrer">Портал абитуриентов</a>
+        <a href="https://inphe.mephi.ru/" target="_blank" rel="noopener noreferrer">Ядерный сайт</a>
+        <a href="https://gonuclear.mephi.ru/" target="_blank" rel="noopener noreferrer">Портал ядерных абитуриентов</a>
         <a href="https://t.me/inphemephi" target="_blank" rel="noopener noreferrer">Канал в Telegram</a>
       </nav>
     </footer>
