@@ -1,44 +1,46 @@
 # Научные игры ИЯФиТ — каталог Telegram Mini Apps
 
-Статическая страница-каталог в едином визуальном стиле проекта «Наука в игре».
+Статическая страница-каталог в едином стиле проекта «Наука в игре».
 
-## Состав
+## Структура (без папки public)
 
-- `public/index.html` — страница каталога.
-- `public/assets/styles.css` — оформление и адаптация смартфон / планшет / компьютер.
-- `public/assets/app.js` — корректный запуск обеих игр из Telegram Mini App и обычного браузера.
-- `public/assets/sipm-tetris.jpg`, `isotopes-256.jpg` — оптимизированные копии **утвержденных** обложек без перерисовки.
-- Оригинальные PNG-обложки хранятся как утвержденные образцы проекта; в данном репозитории лежат оптимизированные копии для публикации.
-- `public/_headers` — базовые HTTP-заголовки Cloudflare Pages.
+- `index.html` — главная страница.
+- `assets/styles.css` — оформление и адаптация.
+- `assets/app.js` — переходы к Telegram Mini Apps и обычным браузерным ссылкам.
+- `assets/sipm-tetris.jpg`, `assets/isotopes-256.jpg` — оптимизированные копии утвержденных обложек.
+- `assets/science-in-games-logo.png` — логотип проекта.
+- `_headers` — HTTP-заголовки Cloudflare Pages.
+- `tests/catalog.test.mjs` — проверка ссылок и статических ресурсов.
 
-## Ссылки на игры
+Оригинальные PNG-обложки сохранены как отдельные утвержденные образцы; в репозитории находятся оптимизированные файлы для публикации.
+
+## Telegram-ссылки
 
 - SiPM Tetris: https://t.me/Nucleargames_bot/sipm_tetris
 - Isotopes.256: https://t.me/Nucleargames_bot/isotopes256
 
-## Первая публикация через GitHub + Cloudflare Pages
+## Cloudflare Pages
 
-1. На GitHub создать **репозиторий `maksimdelov13-cell/NuclearGames`.
-2. Загрузить в него файлы этой папки (включая директорию `public`).
-3. В Cloudflare Dashboard открыть **Workers & Pages → Create → Pages → Connect to Git**.
-4. Выбрать созданный репозиторий и ветку `main`.
-5. Настройки: **Framework preset: None**, **Build command: оставить пустым**, **Build output directory: `public`**. Переменные окружения не нужны.
-6. Опубликовать и проверить полученный `https://...pages.dev` на смартфоне и в Telegram.
-7. В BotFather у существующего `@Nucleargames_bot` настроить **Main Mini App**, указав адрес нового каталога. При необходимости настроить меню «Все игры».
+Подключите репозиторий `maksimdelov13-cell/NuclearGames`, ветку `main`.
 
-После настройки публикация новой версии из ветки `main` будет автоматически запускать повторную сборку и публикацию сайта на прежнем адресе.
+- Framework preset: `None`
+- Root directory: корень репозитория (по умолчанию)
+- Build command: пусто
+- Build output directory: корень репозитория (пусто, либо `.`, если интерфейс требует значение)
+- Environment variables: не нужны
 
-## Добавление новой игры
+Адрес: https://nuclear-games.pages.dev/
 
-Скопировать одну карточку `<a class="game-card">...</a>` в `public/index.html`, заменить название, описание, миниатюру и прямую ссылку вида `https://t.me/Nucleargames_bot/shortname`. Количество игр в тексте секции тоже обновить.
+После каждого коммита в `main` Cloudflare Pages обновляет сайт, если включен Git-based deployment.
 
-## О техническом устройстве
+## Добавление игры
 
-- Только статический сайт: **без Cloudflare Functions, D1, API и отдельного токена бота**.
-- Каталог не меняет существующие игры, их статистику, их репозитории и прямые Telegram-ссылки.
-- Из Telegram игры открываются `Telegram.WebApp.openTelegramLink`; в обычном браузере используются обычные ссылки.
-- Базовая функциональность не требует установки npm-пакетов или иных внешних зависимостей. Внешний Telegram WebApp SDK используется только при запуске в Telegram.
+Добавьте новую карточку в `index.html`, картинку в `assets/`, замените заголовок, описание, прямую ссылку Telegram и обновите счетчик игр.
+
+## Ограничения
+
+Каталог полностью статический: не использует Cloudflare Functions, D1 или токен бота и не изменяет счетчики существующих игр.
 
 ## Проверка
 
-В папке проекта: `node --test tests/catalog.test.mjs` (Node.js 18+).
+`node --test tests/catalog.test.mjs` (Node.js 18+).

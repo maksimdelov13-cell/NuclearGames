@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 const root = path.resolve(import.meta.dirname ?? path.dirname(new URL(import.meta.url).pathname), '..');
-const publicDir = path.join(root, 'public');
+const publicDir = root;
 const html = fs.readFileSync(path.join(publicDir, 'index.html'), 'utf8');
 const js = fs.readFileSync(path.join(publicDir, 'assets/app.js'), 'utf8');
 test('both Telegram Mini Apps are linked', () => {
