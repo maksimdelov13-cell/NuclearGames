@@ -7,9 +7,9 @@
 - `index.html` — главная страница.
 - `assets/styles.css` — оформление и адаптация.
 - `assets/app.js` — переходы к Telegram Mini Apps и обычным браузерным ссылкам.
-- `assets/sipm-tetris.jpg`, `assets/isotopes-256.jpg` — оптимизированные копии утвержденных обложек.
+- `assets/sipm-tetris.jpg`, `assets/isotopes-256.jpg`, `assets/atotom.jpg` — оптимизированные копии утвержденных обложек.
 - `assets/science-in-games-logo.png` — утвержденный логотип; из него подготовлен прозрачный series-logo.png для страницы.
-- Нижний блок «Уже в разработке» — атомно-зондовая микроскопия, отделен горизонтальной линией.
+- Нижний блок «Уже в разработке» — физика ядерных реакторов, отделен горизонтальной линией.
 - В подвале — «Ядерный сайт», «Портал ядерных абитуриентов» и «ИЯФиТ в Telegram».
 - `_headers` — HTTP-заголовки Cloudflare Pages.
 - `tests/catalog.test.mjs` — проверка ссылок и статических ресурсов.
@@ -20,6 +20,7 @@
 
 - SiPM Tetris: https://t.me/Nucleargames_bot/sipm_tetris
 - Isotopes.256: https://t.me/Nucleargames_bot/isotopes256
+- AtoTom: https://t.me/Nucleargames_bot/atotom
 
 ## Cloudflare Pages
 

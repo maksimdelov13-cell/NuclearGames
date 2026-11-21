@@ -6,10 +6,12 @@ const root = path.resolve(import.meta.dirname ?? path.dirname(new URL(import.met
 const publicDir = root;
 const html = fs.readFileSync(path.join(publicDir, 'index.html'), 'utf8');
 const js = fs.readFileSync(path.join(publicDir, 'assets/app.js'), 'utf8');
-test('both Telegram Mini Apps are linked', () => {
+test('all three Telegram Mini Apps are linked', () => {
   assert.match(html, /https:\/\/t\.me\/Nucleargames_bot\/sipm_tetris/);
   assert.match(html, /https:\/\/t\.me\/Nucleargames_bot\/isotopes256/);
-  assert.equal((html.match(/class="game-card game-card--/g) ?? []).length, 2);
+  assert.match(html, /https:\/\/t\.me\/Nucleargames_bot\/atotom/);
+  assert.equal((html.match(/class="game-card game-card--/g) ?? []).length, 3);
+  assert.match(html, />3 игры<\/span>/);
 });
 test('no images or page assets are missing', () => {
   const files = [...html.matchAll(/(?:src|href)="(assets\/[^"]+)"/g)].map(x => x[1].split('?')[0]);
@@ -27,12 +29,17 @@ test('INPHE visual content and footer', () => {
   assert.match(html, /Ядерная физика/);
   assert.doesNotMatch(html, /class="game-card__eyebrow">Физика частиц/);
   assert.match(html, /Уже в разработке/);
-  assert.match(html, /Атомно-зондовая микроскопия/);
+  assert.match(html, /Физика ядерных реакторов/);
+  assert.match(html, /Материаловедение/);
+  assert.match(html, /game-card--atotom/);
+  assert.match(html, /assets\/atotom\.jpg/);
   assert.match(html, /https:\/\/gonuclear\.mephi\.ru\//);
   assert.match(html, /https:\/\/t\.me\/inphemephi/);
   const css = fs.readFileSync(path.join(publicDir, 'assets/styles.css'), 'utf8');
   assert.match(css, /background: #fff/);
   assert.match(css, /--blue: #0055bb/);
+  assert.match(css, /game-card--atotom.*background: #00856b/);
+  assert.match(css, /grid-template-columns: minmax\(0, 1fr\)/);
   assert.match(html, /Ядерный сайт/);
   assert.match(html, /Портал ядерных абитуриентов/);
   assert.match(html, /class="section-rule"/);
