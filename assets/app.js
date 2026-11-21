@@ -4,7 +4,9 @@
   const mobile = ['ios', 'android', 'android_x'].includes(app.platform);
 
   function updateInsets() {
-    const style = document.documentElement.style;
+    const root = document.documentElement;
+    root.toggleAttribute('data-mobile-fullscreen', Boolean(mobile && app.isFullscreen));
+    const style = root.style;
     for (const side of ['top', 'right', 'bottom', 'left']) {
       const key = '--catalog-' + side;
       if (!app.isFullscreen) {

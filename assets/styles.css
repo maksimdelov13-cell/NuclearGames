@@ -25,6 +25,18 @@ a { color: var(--blue); }
   border: 2px solid var(--blue);
 }
 .skip-link:focus { top: calc(var(--catalog-top, env(safe-area-inset-top, 0px)) + 8px); }
+/* In mobile fullscreen only the catalog scrolls, below Telegram's native controls. */
+html[data-mobile-fullscreen],
+html[data-mobile-fullscreen] body { overflow: hidden; background: var(--blue); }
+html[data-mobile-fullscreen] .catalog-viewport {
+  position: fixed;
+  inset: var(--catalog-top) 0 0;
+  overflow: auto;
+  overscroll-behavior-y: contain;
+  background: var(--paper);
+  padding: 0 var(--catalog-right) var(--catalog-bottom) var(--catalog-left);
+}
+html[data-mobile-fullscreen] .skip-link:focus { top: 8px; }
 .site-shell {
   width: min(1160px, calc(100% - 48px));
   margin: 0 auto;
@@ -178,11 +190,14 @@ h1, h2, h3, p { margin-top: 0; }
   .game-card__content { padding: 19px 19px 21px; }
   .game-card__content h3 { font-size: 23px; }
   .game-card__content p { font-size: 14px; margin-bottom: 17px; }
-  .section-rule { margin-top: 32px; }
-  .coming-next { margin: 24px 0 32px; padding: 20px; border-radius: 12px; }
+  .section-rule { display: none; }
+  .coming-next { margin: 22px 0 20px; padding: 16px; border-radius: 12px; }
   .coming-next h2 { font-size: 20px; }
   .coming-next p { font-size: 14px; }
-  .site-footer { padding: 20px 0 30px; }
+  .site-footer { gap: 5px; padding: 15px 0 18px; }
+  .site-footer__links { column-gap: 18px; row-gap: 0; }
+  .site-footer__links a { min-height: 34px; }
+  .coming-next h2 { margin-bottom: 6px; }
 }
 @media(max-width: 370px) {
   .site-shell { width: calc(100% - 26px); }

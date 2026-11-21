@@ -46,15 +46,15 @@ test('INPHE visual content and footer', () => {
 
 import vm from 'node:vm';
 function runClient(platform, opts = {}) {
-  const calls = [], events = {}, css = new Map();
+  const calls = [], events = {}, css = new Map(), attrs = new Set();
   let click;
   const api = {platform, initData: 'test', ready() {}, expand: () => calls.push('expand'),
     isVersionAtLeast: () => true, requestFullscreen: () => calls.push('fullscreen'),
     openTelegramLink: () => calls.push('link'), onEvent: (n, f) => events[n] = f, ...opts};
   vm.runInNewContext(js, {window:{Telegram:{WebApp:api}}, document:{
-    documentElement:{style:{setProperty:(k,v)=>css.set(k,v),removeProperty:k=>css.delete(k)}},
+    documentElement:{toggleAttribute:(k,on)=>on?attrs.add(k):attrs.delete(k),style:{setProperty:(k,v)=>css.set(k,v),removeProperty:k=>css.delete(k)}},
     querySelectorAll:()=>[{href:'https://t.me/example',addEventListener:(_,f)=>click=f}]}});
-  return {api,calls,events,css,click};
+  return {api,calls,events,css,attrs,click};
 }
 test('only mobile clients request fullscreen; older clients use expanded sheet', () => {
   for(const p of ['ios','android','android_x']) assert.deepEqual(runClient(p).calls,['expand','fullscreen']);
@@ -65,10 +65,11 @@ test('only mobile clients request fullscreen; older clients use expanded sheet',
 });
 test('insets follow native controls and clear on leaving fullscreen', () => {
   const r=runClient('ios',{isFullscreen:true,safeAreaInset:{top:54}});
+  assert.ok(r.attrs.has('data-mobile-fullscreen'));
   assert.match(r.css.get('--catalog-top'),/112px/);
   r.api.contentSafeAreaInset={top:48};r.events.contentSafeAreaChanged();
   assert.match(r.css.get('--catalog-top'),/54px.*48px/);
-  r.api.isFullscreen=false;r.events.fullscreenChanged();assert.equal(r.css.size,0);
+  r.api.isFullscreen=false;r.events.fullscreenChanged();assert.equal(r.css.size,0);assert.equal(r.attrs.size,0);
 });
 test('consume only a successful native link click', () => {
   const r=runClient('ios');let n=0;const e={preventDefault(){n++}};
