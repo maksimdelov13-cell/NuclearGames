@@ -30,7 +30,7 @@ test('INPHE visual content and footer', () => {
   assert.doesNotMatch(html, /class="game-card__eyebrow">Физика частиц/);
   assert.match(html, /Уже в разработке/);
   assert.match(html, /Физика ядерных реакторов/);
-  assert.match(html, /Материаловедение/);
+  assert.match(html, /Исследование материалов/);
   assert.match(html, /game-card--atotom/);
   assert.match(html, /assets\/atotom\.jpg/);
   assert.match(html, /https:\/\/gonuclear\.mephi\.ru\//);
@@ -38,8 +38,8 @@ test('INPHE visual content and footer', () => {
   const css = fs.readFileSync(path.join(publicDir, 'assets/styles.css'), 'utf8');
   assert.match(css, /background: #fff/);
   assert.match(css, /--blue: #0055bb/);
-  assert.match(css, /\.game-card--atotom \.game-card__action \{ background: #01a96b; \}/);
-  assert.match(css, /game-card--atotom.*background: #00856b/);
+  assert.match(css, /\.game-card--atotom:active \.game-card__action \{ background: #01a96a; \}/);
+  assert.doesNotMatch(css, /game-card--atotom.*background: #008759/);
   assert.match(css, /grid-template-columns: minmax\(0, 1fr\)/);
   assert.match(html, /Ядерный сайт/);
   assert.match(html, /Портал ядерных абитуриентов/);
