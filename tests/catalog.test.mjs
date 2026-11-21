@@ -19,3 +19,16 @@ test('Telegram internal navigation and ordinary link fallback exist', () => {
   assert.match(html, /data-telegram-app/);
   assert.match(js, /openTelegramLink/);
 });
+
+test('INPHE visual content and footer', () => {
+  assert.match(html, /<h1 id="page-title">Научные игры<\/h1>/);
+  assert.doesNotMatch(html, /Интерактивные научные эксперименты|header-university|Продолжение следует/);
+  assert.equal((html.match(/class="game-card__eyebrow">Физика частиц/g) ?? []).length, 2);
+  assert.match(html, /Уже в разработке/);
+  assert.match(html, /Атомно-зондовая микроскопия/);
+  assert.match(html, /https:\/\/gonuclear\.mephi\.ru\//);
+  assert.match(html, /https:\/\/t\.me\/inphemephi/);
+  const css = fs.readFileSync(path.join(publicDir, 'assets/styles.css'), 'utf8');
+  assert.match(css, /background: #fff/);
+  assert.match(css, /--blue: #0055bb/);
+});
