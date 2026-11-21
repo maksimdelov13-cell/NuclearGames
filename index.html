@@ -6,25 +6,26 @@
   <meta name="theme-color" content="#f7fbff">
   <meta name="color-scheme" content="light">
   <meta name="description" content="Научные игры: SiPM Tetris и Isotopes.256. Проект Института ядерной физики и технологий НИЯУ МИФИ.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Наука в игре — научные игры">
+  <meta property="og:description" content="Собери детектор в SiPM Tetris или доберись до дубния в Isotopes.256. Игры ИЯФиТ НИЯУ МИФИ в Telegram.">
+  <meta property="og:image" content="https://nuclear-games.pages.dev/assets/catalog-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://nuclear-games.pages.dev/">
   <title>Научные игры — Наука в игре</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/styles.css?v=20261121b">
+  <link rel="stylesheet" href="assets/styles.css?v=20261121c">
 
-  <script src="https://telegram.org/js/telegram-web-app.js?65"></script>
-  <script src="assets/app.js" defer></script>
+  <script defer src="https://telegram.org/js/telegram-web-app.js?65"></script>
+  <script src="assets/app.js?v=20261121c" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#games">Перейти к играм</a>
   <div class="site-shell">
     <header class="site-header" aria-label="Научные игры">
       <div class="brand">
-        <svg class="brand__logo" viewBox="0 0 740 195" role="img" aria-label="Наука в игре — от ядерного университета" xmlns="http://www.w3.org/2000/svg">
-          <title>Наука в игре — от ядерного университета</title>
-          <defs><filter id="logo-paper-remove" color-interpolation-filters="sRGB">
-            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 -5.15 0 0 4.65"/>
-          </filter></defs>
-          <image href="assets/science-in-games-logo.png" width="740" height="195" filter="url(#logo-paper-remove)"/>
-        </svg>
+        <img class="brand__logo" src="assets/series-logo.png" width="740" height="195" alt="Наука в игре — от ядерного университета">
       </div>
     </header>
 
@@ -32,7 +33,7 @@
       <section class="intro" aria-labelledby="page-title">
         <h1 id="page-title">Научные игры</h1>
         <p class="intro__subtitle">Играй. Экспериментируй. Исследуй.</p>
-        <p class="intro__details">От ядерных реакторов до темной материи - знакомься с физикой через игру.</p>
+        <p class="intro__details">От ядерных реакторов до темной материи — знакомься с физикой через игру.</p>
       </section>
 
       <section id="games" class="games" aria-labelledby="games-title">
@@ -44,7 +45,7 @@
         <div class="game-grid">
           <a class="game-card game-card--sipm" href="https://t.me/Nucleargames_bot/sipm_tetris" target="_blank" rel="noopener noreferrer" data-telegram-app aria-label="Играть в SiPM Tetris: собери детектор гамма-излучения">
             <div class="game-card__picture">
-              <img src="assets/sipm-tetris.jpg" width="1440" height="810" alt="Обложка SiPM Tetris: научная игра с детектором гамма-излучения, смартфон с игровым полем и схема регистрации сигнала" loading="eager" decoding="async">
+              <img src="assets/sipm-tetris.jpg" srcset="assets/sipm-tetris-800.jpg 800w, assets/sipm-tetris.jpg 1440w" sizes="(min-width: 1208px) 568px, (min-width: 848px) calc(50vw - 36px), calc(100vw - 40px)" width="1440" height="810" alt="Обложка SiPM Tetris: научная игра с детектором гамма-излучения, смартфон с игровым полем и схема регистрации сигнала" loading="eager" decoding="async">
             </div>
             <div class="game-card__content">
               <span class="game-card__eyebrow">Физика элементарных частиц</span>
@@ -56,7 +57,7 @@
 
           <a class="game-card game-card--isotopes" href="https://t.me/Nucleargames_bot/isotopes256" target="_blank" rel="noopener noreferrer" data-telegram-app aria-label="Играть в Isotopes.256: от водорода до дубния">
             <div class="game-card__picture">
-              <img src="assets/isotopes-256.jpg" width="1440" height="811" alt="Обложка Isotopes.256: смартфон с полем изотопов и карта нуклидов, плитки водорода, бериллия и дубния" loading="eager" decoding="async">
+              <img src="assets/isotopes-256.jpg" srcset="assets/isotopes-256-800.jpg 800w, assets/isotopes-256.jpg 1440w" sizes="(min-width: 1208px) 568px, (min-width: 848px) calc(50vw - 36px), calc(100vw - 40px)" width="1440" height="811" alt="Обложка Isotopes.256: смартфон с полем изотопов и карта нуклидов, плитки водорода, бериллия и дубния" loading="eager" decoding="async">
             </div>
             <div class="game-card__content">
               <span class="game-card__eyebrow">Ядерная физика</span>
@@ -76,11 +77,11 @@
     </main>
 
     <footer class="site-footer">
-      <div class="site-footer__name">Институт ядерной физики и технологий НИЯУ МИФИ.</div>
+      <div class="site-footer__name">Институт ядерной физики и технологий НИЯУ МИФИ</div>
       <nav class="site-footer__links" aria-label="Полезные ссылки">
         <a href="https://inphe.mephi.ru/" target="_blank" rel="noopener noreferrer">Ядерный сайт</a>
         <a href="https://gonuclear.mephi.ru/" target="_blank" rel="noopener noreferrer">Портал ядерных абитуриентов</a>
-        <a href="https://t.me/inphemephi" target="_blank" rel="noopener noreferrer">Канал в Telegram</a>
+        <a href="https://t.me/inphemephi" target="_blank" rel="noopener noreferrer">ИЯФиТ в Telegram</a>
       </nav>
     </footer>
   </div>
