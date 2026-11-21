@@ -190,10 +190,10 @@ h1, h2, h3, p { margin-top: 0; }
   .game-card__content { padding: 19px 19px 21px; }
   .game-card__content h3 { font-size: 23px; }
   .game-card__content p { font-size: 14px; margin-bottom: 17px; }
-  .section-rule { display: none; }
-  .coming-next { margin: 22px 0 20px; padding: 16px; border-radius: 12px; }
+  .section-rule { margin-top: 14px; }
+  .coming-next { margin: 14px 0 20px; padding: 16px; border-radius: 12px; }
   .coming-next h2 { font-size: 20px; }
-  .coming-next p { font-size: 14px; }
+  .coming-next p { font-size: 13px; line-height: 1.45; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   .site-footer { gap: 5px; padding: 15px 0 18px; }
   .site-footer__links { column-gap: 18px; row-gap: 0; }
   .site-footer__links a { min-height: 34px; }
