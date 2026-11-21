@@ -12,7 +12,7 @@ test('both Telegram Mini Apps are linked', () => {
   assert.equal((html.match(/class="game-card game-card--/g) ?? []).length, 2);
 });
 test('no images or page assets are missing', () => {
-  const files = [...html.matchAll(/(?:src|href)="(assets\/[^"]+)"/g)].map(x => x[1]);
+  const files = [...html.matchAll(/(?:src|href)="(assets\/[^"]+)"/g)].map(x => x[1].split('?')[0]);
   for (const f of files) assert.ok(fs.existsSync(path.join(publicDir, f)), `${f} missing`);
 });
 test('Telegram internal navigation and ordinary link fallback exist', () => {
@@ -39,6 +39,7 @@ test('INPHE visual content and footer', () => {
   assert.match(html, /feColorMatrix/);
   assert.match(css, /brand__logo/);
   assert.match(css, /section-rule/);
+  assert.match(html, /styles\.css\?v=/);
   assert.match(css, /line-height: 1\.3; color: var\(--blue\)/);
   assert.match(html, /От ядерных реакторов до темной материи - знакомься с физикой через игру/);
 });
